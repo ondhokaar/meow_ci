@@ -53,7 +53,7 @@ class Signup extends \CodeIgniter\Controller {
                 if($creation_user_success) {
                     //goto login
                     $this->session->setTempdata('success_signup', 'account created successfully, please login', 5);
-                    
+                    return redirect()->to(base_url().'/login');
                 }
                 else {
                     //sth wrong

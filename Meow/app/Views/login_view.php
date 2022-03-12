@@ -3,14 +3,14 @@
 
 <?= $this->section("content"); ?>
 
-    <?php if ($session->getTempdata('success')): ?>
+    <?php if ($session->getTempdata('success_signup')): ?>
         <div class="alert alert-success" role="alert">
-            <?= $session->getTempdata('success'); ?>
+            <?= $session->getTempdata('success_signup'); ?>
         </div>
     <?php endif; ?>
-    <?php if ($session->getTempdata('error')): ?>
+    <?php if ($session->getTempdata('error_login')): ?>
         <div class="alert alert-danger" role="alert">
-            <?= $session->getTempdata('error'); ?>
+            <?= $session->getTempdata('error_login'); ?>
         </div>
     <?php endif; ?>
 

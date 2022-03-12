@@ -18,6 +18,7 @@ class Login extends \CodeIgniter\Controller {
     }
 
     public function index() {
+        return view('login_view');
         $data = [];
         if ($this->request->getMethod() == "post") {
             //set rules
