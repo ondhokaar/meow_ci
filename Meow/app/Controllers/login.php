@@ -22,7 +22,12 @@ class Login extends \CodeIgniter\Controller {
 
         $data = [];
         if ($this->request->getMethod() == "post") {
-
+            $throttler = \CodeIgniter\Config\Services::throttler();
+            $allow = $throttler -> check(md5($this->request->getIPAddress()), 3, 60);
+            if(!$allow) {
+                $this->session->setFlashdata('throttle', 'calm down, please wait for a min');
+                return redirect()->to(current_url());
+            }
             //set rules
             $rules = [
                 'email' => 'required|valid_email',
@@ -31,7 +36,7 @@ class Login extends \CodeIgniter\Controller {
             
             if($this->validate($rules)) {
                 //ok valid input, now auth
-
+                
                 $email = $this->request->getPost('email');
                 $password = $this->request->getPost('password');
                 $userdata = $this->loginModel->verifyEmail($email);

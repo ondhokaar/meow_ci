@@ -23,7 +23,9 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
-        'loginFilter'   => \App\Filters\LoginFilter::class
+        'loginFilter'   => \App\Filters\LoginFilter::class,
+        'logoutFilter'  => \App\Filters\LogoutFilter::class,
+        'maxRequest'    => \App\Filters\MaxRequest::class,
     ];
 
     /**
@@ -55,7 +57,9 @@ class Filters extends BaseConfig
      *
      * @var array
      */
-    public $methods = [];
+    public $methods = [
+        //'post' => ['maxRequest', 'csrf']
+    ];
 
     /**
      * List of filter aliases that should run on any
@@ -69,8 +73,21 @@ class Filters extends BaseConfig
     public $filters = [
         'loginFilter' => [
             'before' => [
-                'dashboard/*'
+                'dashboard/*',
+                'dashboard',
+                
             ]
-        ]
+        ],
+        
+        'logoutFilter' => [
+            'before' => [
+                'login/*',
+                'login',
+                'signup/*',
+                'signup'
+            ]
+        ],
+        
+
     ];
 }

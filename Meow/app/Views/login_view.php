@@ -8,7 +8,7 @@
             <?= $session->getTempdata('success_signup'); ?>
         </div>
     <?php endif; ?>
-    <?php if ($session->get('bounced')): ?>
+    <?php if ($session->has('bounced')): ?>
         <div class="alert alert-danger" role="alert">
             <?= $session->get('bounced'); ?>
         </div>
@@ -16,6 +16,11 @@
     <?php if ($session->getTempdata('error_login')): ?>
         <div class="alert alert-danger" role="alert">
             <?= $session->getTempdata('error_login'); ?>
+        </div>
+    <?php endif; ?>
+    <?php if ($session->has('throttle')): ?>
+        <div class="alert alert-danger" role="alert">
+            <?= $session->get('throttle'); ?>
         </div>
     <?php endif; ?>
 
