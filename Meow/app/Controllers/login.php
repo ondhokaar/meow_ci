@@ -59,8 +59,8 @@ class Login extends \CodeIgniter\Controller {
                 else {
                     //user does not exist
 
-                    $this->session->setTempdata('user_not_found', 'email does not exist :(<br>Please sign up first', 5);
-                    return redirect()->to(base_url().'/signup');
+                    $this->session->setTempdata('user_not_found', 'Email does not exist :( Please sign up first', 5);
+                    return redirect()->to(current_url());
                 }
                 
             }

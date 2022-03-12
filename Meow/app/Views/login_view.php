@@ -37,6 +37,11 @@
                     <?= $validation->getError('email'); ?>
                 </div>
             <?php endif; ?>
+            <?php if ($session->has('user_not_found')): ?>
+                <div class="alert alert-danger .fs-6" role="alert">
+                    <?= $session->get('user_not_found'); ?>
+                </div>
+            <?php endif; ?>
 
         </div>
         <div class="my-2 form-floating">
