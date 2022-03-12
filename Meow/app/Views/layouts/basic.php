@@ -24,7 +24,7 @@
                     </li>
                     <li class="nav-item dropdown" style="margin-right: 10px;">
                         <a class="nav-link dropdown-toggle" href="#" id="accessories" role="button" data-bs-toggle="dropdown" aria-expanded="false">Accessories</a>
-                        <ul class="dropdown-menu bg-dark" aria-labelledby="accessories">
+                        <ul class="dropdown-menu bg-secondary navbar-dark" aria-labelledby="accessories">
                             <li class="dropdown-item">Food</li>
                             <li class="dropdown-item">Toys</li>
                             <li class="dropdown-item">Vet Medicine</li>
