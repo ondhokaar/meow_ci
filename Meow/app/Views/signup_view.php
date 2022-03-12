@@ -10,6 +10,11 @@
                 <?= $session->getTempdata('error_signup'); ?>
             </div>
         <?php endif;?>
+        <?php if($session->getTempdata('user_not_found')): ?>
+            <div class="alert alert-danger" role="alert">
+                <?= $session->getTempdata('user_not_found'); ?>
+            </div>
+        <?php endif;?>        
 
         <?= form_open(); ?>
         <div class="form-floating mb-1" style="margin-top: 10%;">

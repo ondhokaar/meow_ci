@@ -17,6 +17,7 @@ use App\Models\RegisterModel;
 class Signup extends \CodeIgniter\Controller {
 
     //put your code here
+    public $registerModel;
     public function __construct() {
         helper('form');
         $this->registerModel = new RegisterModel();
@@ -26,13 +27,11 @@ class Signup extends \CodeIgniter\Controller {
 
     public function index() {
 
-        echo "now all good";
 
         $data = [];
         if ($this->request->getMethod() == "post") {
-            echo "posted";
-            $reg = new RegisterModel();
-            $users = $reg->users();
+
+            $users = $this->registerModel->users();
             //set rules
             $rules = [
                 'name' => 'required|min_length[3]|max_length[30]',
@@ -42,13 +41,13 @@ class Signup extends \CodeIgniter\Controller {
             ];
 
             if ($this->validate($rules)) {
-                echo "valid";
+
                 $userdata = [
                     'name' => $this->request->getVar('name'),
                     'email' => $this->request->getVar('email'),
                     'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
                 ];
-                $creation_user_success = $reg->createUser($userdata);
+                $creation_user_success = $this->registerModel->createUser($userdata);
                 
                 if($creation_user_success) {
                     //goto login
@@ -60,7 +59,8 @@ class Signup extends \CodeIgniter\Controller {
                     $this->session->setTempdata('error_signup', 'failed, please try again', 5);
                     return redirect()->to(current_url());
                 }
-            } else {
+            } 
+            else {
                 $data['validation'] = $this->validator;
                 return view('signup_view', $data);
             }
