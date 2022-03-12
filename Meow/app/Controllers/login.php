@@ -33,12 +33,22 @@ class Login extends \CodeIgniter\Controller {
                 //ok valid input, now auth
 
                 $email = $this->request->getPost('email');
-                $password = password_hash($this->request->getPost('password'), PASSWORD_DEFAULT);
-                
+                $password = $this->request->getPost('password');
                 $userdata = $this->loginModel->verifyEmail($email);
                 if($userdata) {
                     //if exists
+                    //then auth
 
+                    if(password_verify($password, $userdata['password'])) {
+                        //pass matched, redirect() to dashboard as logged in user
+                        $this->session->set('loggedInUser', $userdata['email']);
+                        return redirect()->to(base_url().'/dashboard');
+                    }
+                    else {
+                        //pass did not match
+                        $this->session->setFlashdata('wrongPass', "wrong password");
+                        return redirect()->to(current_url());
+                    }
                     return view('login_view');
                 }
                 else {
