@@ -27,6 +27,7 @@
                     <?= $validation->getError('email'); ?>
                 </div>
             <?php endif; ?>
+
         </div>
         <div class="my-2 form-floating">
             <input class="form-control" type="password" name="password" id="password" required>
@@ -36,6 +37,11 @@
             <?php if (isset($validation) and $validation->hasError('password')): ?>
                 <div class="text-danger">
                     <?= $validation->getError('password'); ?>
+                </div>
+            <?php endif; ?>
+            <?php if ($session->get('wrongPass')): ?>
+                <div class="text-danger">
+                    <?= $session->get('wrongPass'); ?>
                 </div>
             <?php endif; ?>
         </div>
