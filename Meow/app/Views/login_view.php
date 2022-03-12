@@ -8,6 +8,11 @@
             <?= $session->getTempdata('success_signup'); ?>
         </div>
     <?php endif; ?>
+    <?php if ($session->get('bounced')): ?>
+        <div class="alert alert-danger" role="alert">
+            <?= $session->get('bounced'); ?>
+        </div>
+    <?php endif; ?>
     <?php if ($session->getTempdata('error_login')): ?>
         <div class="alert alert-danger" role="alert">
             <?= $session->getTempdata('error_login'); ?>

@@ -1,3 +1,4 @@
+<?php $session = \Config\Services::session(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,18 +37,14 @@
                 <img style="margin-left: 20%;" src="<?= base_url() ?>/public/assets/img/happy.svg" alt="" width="50" height="50" style="stroke: blue;" class="d-inline-block align-text-top">
                 
                 <ul class="nav navbar-nav" style="margin-left: auto;">
-                    <?php if(true): ?> 
-                        <!-- if logged out, then  : show(login & signup button) -->
-                        <!-- but hide login button if this = loginpage -->
 
-                            <li class="nav-item"><a href="<?= base_url() ?>/login" class="nav-link">Login</a></li>
-
-                            <li class="nav-item"><a href="<?= base_url() ?>/signup" class="nav-link">Sign Up</a></li>
-                    <?php endif; ?>
-
-                    <?php if(false): ?>
-                        <li class="nav-item"><a href="#" class="nav-link">logout</a></li>
-                    <?php endif; ?>
+                        
+                    <?php if($session->get('loggedInUser')): ?> 
+                        <li class="nav-item"><a href="<?= base_url() ?>/dashboard/logout" class="nav-link">logout</a></li>
+                    <?php else: ?>
+                        <li class="nav-item"><a href="<?= base_url() ?>/login" class="nav-link">Login</a></li>
+                        <li class="nav-item"><a href="<?= base_url() ?>/signup" class="nav-link">Sign Up</a></li>
+                    <?php endif; ?>                        
                         <li class="nav-item"><a href="" class="nav-link">Feedback</a></li>
                 </ul>
 

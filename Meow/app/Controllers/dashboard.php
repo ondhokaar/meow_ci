@@ -17,9 +17,9 @@ class dashboard extends \CodeIgniter\Controller {
     public function index() {
         return view('dashboard_view');
     }
-//    public function logout() {
-////        session() -> remove('loggedUser');
-////        session() -> destroy();
-//        return redirect() -> to(base_url().'/home');
-//    }
+    public function logout() {
+        session() -> remove('loggedInUser');
+        session() -> destroy();
+        return redirect() -> to(base_url().'/login');
+    }
 }

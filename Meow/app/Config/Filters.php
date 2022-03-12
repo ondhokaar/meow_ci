@@ -23,6 +23,7 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        'loginFilter'   => \App\Filters\LoginFilter::class
     ];
 
     /**
@@ -36,6 +37,7 @@ class Filters extends BaseConfig
             // 'honeypot',
             // 'csrf',
             // 'invalidchars',
+
         ],
         'after' => [
             'toolbar',
@@ -64,5 +66,11 @@ class Filters extends BaseConfig
      *
      * @var array
      */
-    public $filters = [];
+    public $filters = [
+        'loginFilter' => [
+            'before' => [
+                'dashboard/*'
+            ]
+        ]
+    ];
 }
