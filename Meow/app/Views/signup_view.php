@@ -5,9 +5,9 @@
 
     <div class="container-fluid" style="width: 40%;">
         <h1 class="text-center my-3">sign up</h1>
-        <?php if($session->getTempdata('error')): ?>
+        <?php if($session->getTempdata('error_signup')): ?>
             <div class="alert alert-danger" role="alert">
-                <?= $session->getTempdata('error'); ?>
+                <?= $session->getTempdata('error_signup'); ?>
             </div>
         <?php endif;?>
 

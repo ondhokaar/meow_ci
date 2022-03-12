@@ -52,10 +52,13 @@ class Signup extends \CodeIgniter\Controller {
                 
                 if($creation_user_success) {
                     //goto login
+                    $this->session->setTempdata('success_signup', 'account created successfully, please login', 5);
                     
                 }
                 else {
                     //sth wrong
+                    $this->session->setTempdata('error_signup', 'failed, please try again', 5);
+                    return redirect()->to(current_url());
                 }
             } else {
                 $data['validation'] = $this->validator;
