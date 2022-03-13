@@ -17,6 +17,7 @@ class FosterHome extends \CodeIgniter\Controller {
     //put your code here
     public $mydb;
     public function __construct() {
+        helper('form');
         $this->mydb = new FosterHomeModel();
     }
     

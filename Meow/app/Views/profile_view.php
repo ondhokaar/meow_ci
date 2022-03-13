@@ -35,17 +35,16 @@ $userdata = [
         <?= form_open_multipart(); ?>
 
         <div class="form-floating mb-1" >
-            <input type="text" name="kname" id="kname" value='<?= set_value('kname'); ?>' class="form-control" required="">
+            <input type="text" name="kname" id="kname" value='<?= set_value('kname'); ?>' class="form-control" required>
             <label for="kname">Kitten Name</label>
 
 
         </div>
         <div class="form-floating mb-1">
-            <input type="text" name="kdetails" id="kdetails" value='<?= set_value('kdetails'); ?>' class="form-control" required>
+            <input type="text" class="form-control" value='<?= set_value('kdetails'); ?>' id="kdetails" style="height: 100px" required"></input>
             <label for="kdetails">Details (Age/Gender/food/vaccination/weight/address</label>
-
-
         </div>
+
 
         <div class="mb-1">
             <h6>Upload an image </h6> <input type="file" name="kitten-img" id="kitten-img" class="form-control" required>
@@ -54,7 +53,7 @@ $userdata = [
 
         </div>
 
-        <input type="submit" value="Upload"> 
+        <input class="mt-3" type="submit" value="Upload"> 
 
         <?= form_close(); ?>
     </div>
