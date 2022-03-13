@@ -15,6 +15,7 @@ namespace App\Controllers;
 class dashboard extends \CodeIgniter\Controller {
     //put your code here
     public function index() {
+
         return view('dashboard_view');
     }
     public function logout() {

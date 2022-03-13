@@ -4,7 +4,8 @@ namespace App\Controllers;
 
 class Home extends \CodeIgniter\Controller {
 
-    public function index() {
+    public function index($param) {
+        echo $param;
 //        $db = \Config\Database::connect();
 //        
 //        $query = $db -> query("select * from users");

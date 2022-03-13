@@ -29,6 +29,8 @@ $routes->setAutoRoute(true);
  * --------------------------------------------------------------------
  */
 
+
+
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'dashboard::index');
@@ -36,6 +38,9 @@ $routes->get('/', 'dashboard::index');
 //    $routes->get('', 'dashboard::index');
 //    $routes->get('index', '\App\Controllers\dashboard::index');
 //});
+
+$routes->add('productDetails/(:alpha)/(:num)', 'productdetails::index/$1/$2');
+
 
 /*
  * --------------------------------------------------------------------

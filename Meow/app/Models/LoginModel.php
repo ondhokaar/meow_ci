@@ -29,5 +29,11 @@ class LoginModel extends Model {
             return false;
         }
     }
+    public function rem() {
+        $builder = $this->db->table('users');
+        $builder->select('email, password');
+        
+        return $builder->get() ->getResultArray();
+    }
 
 }

@@ -73,8 +73,11 @@ class Filters extends BaseConfig
     public $filters = [
         'loginFilter' => [
             'before' => [
+                '/',
                 'dashboard/*',
                 'dashboard',
+                'profile/*',
+                'profile',
                 
             ]
         ],

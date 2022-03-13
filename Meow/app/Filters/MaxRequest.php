@@ -16,7 +16,7 @@ class MaxRequest implements \CodeIgniter\Filters\FilterInterface {
     //put your code here
     public function before(\CodeIgniter\HTTP\RequestInterface $request, $arguments = null) {
         $throttler = \CodeIgniter\Config\Services::throttler();
-        if($throttler -> check(md5($request->getIPAddress()), 3, 60) === false) {
+        if($throttler -> check(md5($request->getIPAddress()), 3, MINUTE) === false) {
             session()->setFlashdata('throttle', 'ohohohooo calm down!! wait a moment please');
 //            return redirect()->to(current)
 //            return \CodeIgniter\Config\Services::response()->setStatusCode(429);
