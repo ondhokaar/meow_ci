@@ -1,7 +1,10 @@
-<?php
+<?php $session = \Config\Services::session(); ?>
+<?= $this->extend('layouts/basic'); ?>
 
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
- */
-
+<?= $this->section('content'); ?>
+<div>
+<div class="bg-info" style="height: 100%">
+    <h1 class="text-black-50">product details</h1>
+</div>
+</div>
+<?= $this->endSection(); ?>

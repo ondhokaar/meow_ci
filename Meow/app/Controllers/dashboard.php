@@ -18,9 +18,17 @@ class dashboard extends \CodeIgniter\Controller {
 
         return view('dashboard_view');
     }
+    public function buyKittens() {
+        echo "ok";
+    }
+    public function buyAccessories($category='all') {
+        echo "yes, ".$category;
+    }
+
     public function logout() {
         session() -> remove('loggedInUser');
         session() -> destroy();
         return redirect() -> to(base_url().'/login');
     }
+    
 }

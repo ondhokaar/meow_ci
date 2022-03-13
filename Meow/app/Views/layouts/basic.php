@@ -18,20 +18,20 @@
                     <li class="nav-item dropdown" style="margin-right: 10px;">
                         <a class="nav-link dropdown-toggle" href="#" class="" id="kittens" role="button" data-bs-toggle="dropdown">Kittens</a>
                         <ul class="dropdown-menu bg-secondary navbar-dark" aria-labelledby="kittens">
-                            <li class="dropdown-item">Buy</li>
-                            <li class="dropdown-item">Adopt</li>
+                            <a href="<?= base_url() ?>/dashboard/buykittens"><li class="dropdown-item">Buy</li></a>
+                            <a href="<?= base_url() ?>/profile/#uploadKitten"><li class="dropdown-item">Sell</li></a>
                         </ul>
                     </li>
                     <li class="nav-item dropdown" style="margin-right: 10px;">
                         <a class="nav-link dropdown-toggle" href="#" id="accessories" role="button" data-bs-toggle="dropdown" aria-expanded="false">Accessories</a>
                         <ul class="dropdown-menu bg-secondary navbar-dark" aria-labelledby="accessories">
-                            <li class="dropdown-item">Food</li>
-                            <li class="dropdown-item">Toys</li>
-                            <li class="dropdown-item">Vet Medicine</li>
+                            <a href="<?= base_url() ?>/dashboard/buyAccessories/food"><li class="dropdown-item">Food</li>
+                            <a href="<?= base_url() ?>/dashboard/buyAccessories/toys"><li class="dropdown-item">Toys</li>
+                            <a href="<?= base_url() ?>/dashboard/buyAccessories/meds"><li class="dropdown-item">Vet Medicine</li>
                         </ul>
                     </li>
-                    <li class="nav-item" style="margin-right: 10px;"><a class="nav-link" href="#" class="" id="">Foster Home</a></li>
-                    <li class="nav-item" style="margin-right: 10px;"><a class="nav-link" href="#" class="" id="">Health</a></li>
+                    <li class="nav-item" style="margin-right: 10px;"><a class="nav-link" href="<?= base_url() ?>/fosterhome" id="">Foster Home</a></li>
+                    <li class="nav-item" style="margin-right: 10px;"><a class="nav-link" href="<?= base_url() ?>/health" id="">Health</a></li>
 
                 </ul>
                 <a href="<?= base_url() ?>" class="m-auto">
@@ -40,8 +40,9 @@
                 <ul class="nav navbar-nav" style="margin-left: auto;">
 
                         
-                    <?php if($session->get('loggedInUser')): ?> 
-                        <li class="nav-item"><a href="<?= base_url() ?>/dashboard/logout" class="nav-link">logout</a></li>
+                    <?php if($session->get('loggedInUser')): ?>
+                        <li class="nav-item"><a href="<?= base_url() ?>/profile" class="nav-link">Profile</a></li>                    
+                        <li class="nav-item"><a href="<?= base_url() ?>/dashboard/logout" class="nav-link">Logout</a></li>
                     <?php else: ?>
                         <li class="nav-item"><a href="<?= base_url() ?>/login" class="nav-link">Login</a></li>
                         <li class="nav-item"><a href="<?= base_url() ?>/signup" class="nav-link">Sign Up</a></li>

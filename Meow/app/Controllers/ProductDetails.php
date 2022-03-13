@@ -6,7 +6,8 @@
  */
 
 namespace App\Controllers;
-
+use App\Models\AccessoriesModel;
+use App\Models\KittenModel;
 /**
  * Description of ProductDetails
  *
@@ -14,10 +15,19 @@ namespace App\Controllers;
  */
 class ProductDetails extends \CodeIgniter\Controller {
     //put your code here
+    public $kitten_tbl;
+    public $accessories_tbl;
     public function __construct() {
-        ;
+        $this->kitten_tbl = new KittenModel();
+        $this->accessories_tbl = new AccessoriesModel();
     }
     public function index($tablename, $pid) {
-        echo "show me id=".$pid." from ".$tablename." table";
+        //search by pid
+        if($tablename == 'kittens') {
+            //use $kitten_tbl;
+        }
+        else if($tablename == 'accessories') {
+            //use $accessories_tbl;
+        }
     }
 }
